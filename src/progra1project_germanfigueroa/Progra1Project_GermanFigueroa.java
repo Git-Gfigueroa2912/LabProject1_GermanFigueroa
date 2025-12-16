@@ -44,7 +44,7 @@ public class Progra1Project_GermanFigueroa {
                 break;
             }
             case 3->{
-                System.out.println("Total actual: L." +totalCompra);
+                System.out.println("Total actual: L." +Totalcompra);
                 break;
             }
             case 4->{
@@ -91,6 +91,21 @@ public class Progra1Project_GermanFigueroa {
         if(posicion < 0 || posicion >= inventario.size()){
             System.out.println("El producto es invalido");
             return;
+        }
+        Producto p = inventario.get(posicion);
+        
+        System.out.print("Cantidad: ");
+        int cantidad = entrada.nextInt();
+        
+        if(cantidad <= 0){
+            System.out.println("La cantidad es invalida");
+        }else if(cantidad > p.getStock()){
+            System.out.println("El stock es insuficiente");
+        }else{
+            p.reducirStock(cantidad);
+            
+            double sub = cantidad * p.getPrecio();
+            Totalcompra += sub;
         }
     }
 }
