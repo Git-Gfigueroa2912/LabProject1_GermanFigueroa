@@ -61,4 +61,36 @@ public class Progra1Project_GermanFigueroa {
         }
         Menu(); // <- RECURSIVIDAD
     }
+    //============================= CARGA DE PRODUCTOS ===================
+    public static void cargarProductos(){
+        inventario.add(new Producto("Arroz", 25, 10));
+        inventario.add(new Producto("Frijoles", 30, 8));
+        inventario.add(new Producto("Azucar", 20, 6));
+        inventario.add(new Producto("Aceite", 55, 5));
+        inventario.add(new Producto("Cafe", 40, 7));
+        inventario.add(new Producto("Leche", 28, 14));
+        inventario.add(new Producto("Pan", 5, 30));
+        inventario.add(new Producto("Huevos (docena)", 75, 6));
+        inventario.add(new Producto("Mantequilla", 35, 9));
+        inventario.add(new Producto("Sal", 20, 10));
+    }
+    //======================== INVENTARIO ================================
+    public static void mostrarInventario(){
+        System.out.println("INVENTARIO DE PRODUCTOS");
+        for(int i = 0; i < inventario.size(); i++){
+            System.out.println((i + 1) + ". " + inventario.get(i));
+        }
+    }
+    //======================== COMPRA DE PRODUCTO =========================
+    public static void comprar(){
+        mostrarInventario();
+        
+        System.out.println("Seleccione el producto a comprar: ");  
+        int posicion = entrada.nextInt() - 1;
+        
+        if(posicion < 0 || posicion >= inventario.size()){
+            System.out.println("El producto es invalido");
+            return;
+        }
+    }
 }
