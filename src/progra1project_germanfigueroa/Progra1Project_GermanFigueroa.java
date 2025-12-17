@@ -106,6 +106,26 @@ public class Progra1Project_GermanFigueroa {
             
             double sub = cantidad * p.getPrecio();
             Totalcompra += sub;
+            
+            registroVentas[posicion][0] = posicion;
+            registroVentas[posicion][1] += cantidad;
+            
+            System.out.println("La compra ha sido realizada");
+            System.out.println("El subtotal es: " + sub);
         }
     }
-}
+    //========================== REPORTE DE VENTAS ======================
+    public static void mostrarVentas(){
+        System.out.println("VENTAS");
+        
+        for(int i = 0; i < inventario.size(); i++){
+            if(registroVentas[i][1] > 0){
+                System.out.println(
+                        inventario.get(i).getNombre()+
+                                " vendidos: " +
+                                registroVentas[i][1]
+                );
+            }
+        }
+    }
+}    
